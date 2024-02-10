@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let name = prompt("Как тебя зовут?");
+		alert("Привет, " + name);
+		// список слов 10-15 из более 5-6 букв
+		// случайное слово из списка
+		// Запрашиваем букву у игрока
+		// Проверка введенного значения
+		// Показываем игроку угаданные места в слове
+		// Если слово угадано то Победа
+		// Если количество попыток превышено, то проигрыш
+		let words = ['лампа', 'школа', 'лисица', 'кварц', 'дерево', 'холод', 'ремень', 'театр', 'книга', 'клюшка', 'хоккей', 'брошь', 'артист', 'адрес', 'гриль', 'побег', 'ковер', 'корень', 'бомба', 'вклад', 'склад', 'коала', 'народ', 'нарды', 'какао', 'грамм', 'люстра', 'шляпа', 'проза', 'гигант', 'флейта', 'финики', 'машина', 'поезд', 'янтарь', 'дождь', 'заказ', 'плита', 'ступня','дрова', 'благо', 'борьба', 'поход', 'хлорка', 'среда', 'синева', 'лоток', 'норка', 'зараза', 'огурец', 'яблоко', 'банан'];
+		let word = words[Math.floor(Math.random() * words.length)];
+		let remainingLetter = word.length;
+		let answerArray = [];
+		for (let i = 0; i < word.length; i++){
+			answerArray[i] = "_"
+		} 
+		while (remainingLetter > 0){
+			alert(answerArray.join(" "))
+		let answerLetter = prompt("Укажите букву в загадонном слове, для выхода на нажмите отмена. Вводите только 1 РУССКУЮ букву!");
+		if (answerLetter === null) {
+			break;
+		} else if (answerLetter.length !== 1) {
+			alert("Вводить нужно только 1 букву!")
+		} else {
+			for (let i = 0; i < word.length; i++){
+				if (word[i] === answerLetter){
+					answerArray[i] = answerLetter;
+					remainingLetter--;
+					}
+				}
+			}
+		}	
+		alert ("Загаданное слово: " + word);
+		if (remainingLetter > 0){
+			alert("Ты проиграл!");
+		} else {
+			alert("Это победа!!");
+		}
+	</script>
+</body>
+</html>
